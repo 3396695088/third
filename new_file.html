@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>实验3 网页布局</title>
+	<style>
+		
+	</style>
+	</head>
+	<body>
+	<script src="js/pixi.min.js"></script><audio id="mu1">
+		<source src="res/2/Alan Silvestri - Forrest Gump Suite.mp3" type="audio/mp3">
+
+</source>
+</audio>
+<audio id="mu2">
+	<source src="res/4/Howard Shore - Concerning Hobbits.mp3" type="audio/mp3"></source>
+</audio>
+<a href="/ex3/index.html" target="_blank">回到首页</a>
+<div id="cener">
+	<script>
+		//var c = document.querySelector("canvas");
+	var mu1=document.querySelector("#mu1");
+	var mu2=document.querySelector("#mu2");
+	var app=new PIXI.Application(400,
+	700);
+	document.body.appendChild(app.view);
+	var bg=new PIXI.Sprite.fromImage("res/2/背景.png");
+	app.stage.addChild(bg);
+	bg.width=400;
+	bg.height=700;
+	var light=new PIXI.Sprite.fromImage("res/2/光效.png");
+	app.stage.addChild(light);
+	light.width=400;
+	light.height=700;
+	light.visible=false;
+	var wheelbody=new PIXI.Sprite.fromImage("res/2/轮子主体.png");
+	app.stage.addChild(wheelbody);
+	//wheelbody.x=150;
+	//wheelbody.y=625;
+	wheelbody.width=400;
+	wheelbody.height=700;
+	var wheelone=new PIXI.Sprite.fromImage("res/2/轮子1.png");
+	app.stage.addChild(wheelone);
+	wheelone.width=400;
+	wheelone.height=700;
+	var wheeltwo=new PIXI.Sprite.fromImage("res/2/轮子2.png");
+	app.stage.addChild(wheeltwo);
+	wheeltwo.width=400;
+	wheeltwo.height=700;
+	var words1=new PIXI.Sprite.fromImage("res/2/文字1.png");
+	words1.width=400;
+	words1.height=700;
+	//app.stage.addChild(words1);
+	var words2=new PIXI.Sprite.fromImage("res/2/文字2.png");
+	words2.width=400;
+	words2.height=700;
+	var words3=new PIXI.Sprite.fromImage("res/2/文字3.png");
+	words3.width=400;
+	words3.height=700;
+	var words4=new PIXI.Sprite.fromImage("res/2/文字4.png");
+	words4.width=400;
+	words4.height=700;
+	var words5=new PIXI.Sprite.fromImage("res/2/文字5.png");
+	words5.width=400;
+	words5.height=700;
+	//app.stage.addChild(words1);
+	//app.stage.addChild(words2);
+	//words1.visible=false;
+	wheeltwo.interactive=true;
+	wheeltwo.on("click",
+	wheeltwoclick);
+	var clicks=0;
+	function wheeltwoclick() {
+		light.visible=true;
+		//var clicks=0;
+		clicks+=1;
+		if(clicks==1) {
+			app.stage.addChild(words1);
+		}
+		else if(clicks==2) {
+			app.stage.addChild(words2);
+		}
+		else if(clicks==3) {
+			app.stage.addChild(words3);
+		}
+		else if(clicks==4) {
+			app.stage.addChild(words4);
+		}
+		else if(clicks==5) {
+			sign.visible=true;
+		}
+		/*wheeltwo.anchor.set(0.5,0.5);
+				wheeltwo.rotation=0;
+				if(wheeltwo.rotation>=0&&wheeltwo.rotation<=Math.PI*2){
+					wheeltwo.rotation+=Math.PI/50;
+				}else if(wheelrotation==Math.PI){
+					wheeltwo.rotation=0;
+				}*/
+	}
+	
+	//words5.interactive=true;
+	var sign=new PIXI.Text("点击继续");
+	app.stage.addChild(sign);
+	sign.style.fill=0xffffff;
+	sign.x=290;
+	sign.y=600;
+	sign.visible=false;
+	sign.interactive=true;
+	sign.on("click",
+	reset);
+	function reset() {
+		mu1.play();
+		app.stage.removeChild(words1,
+		words2,
+		words3,
+		words4,
+		wheelone,
+		wheeltwo,
+		wheelbody,
+		sign,
+		bg,
+		light);
+		var bg2=new PIXI.Sprite.fromImage("res/3/背景.png");
+		bg2.width=400;
+		bg2.height=700;
+		app.stage.addChild(bg2);
+		var man=new PIXI.Sprite.fromImage("res/3/人物主体.png");
+		man.width=400;
+		man.height=700;
+		app.stage.addChild(man);
+		var plume1=new PIXI.Sprite.fromImage("res/3/羽毛1.png");
+		var plume2=new PIXI.Sprite.fromImage("res/3/羽毛2.png");
+		var plume3=new PIXI.Sprite.fromImage("res/3/羽毛3.png");
+		plume1.width=400;
+		plume1.height=700;
+		plume2.width=400;
+		plume2.height=700;
+		plume3.width=400;
+		plume3.height=700;
+		app.stage.addChild(plume1,
+		plume2,
+		plume3);
+		var word1=new PIXI.Sprite.fromImage("res/3/文字1.png");
+		var word2=new PIXI.Sprite.fromImage("res/3/文字2.png");
+		var word3=new PIXI.Sprite.fromImage("res/3/文字3.png");
+		var word4=new PIXI.Sprite.fromImage("res/3/文字4.png");
+		word1.width=400;
+		word1.height=700;
+		word2.width=400;
+		word2.height=700;
+		word3.width=400;
+		word3.height=700;
+		word4.width=400;
+		word4.height=700;
+		bg2.interactive=true;
+		bg2.on("click",
+		contnue);
+		var s=0;
+		function contnue() {
+			s+=1;
+			if(s==1) {
+				app.stage.addChild(word1);
+			}
+			else if(s==2) {
+				app.stage.addChild(word2);
+			}
+			else if(s==3) {
+				app.stage.addChild(word3);
+			}
+			else if(s==4) {
+				app.stage.addChild(word4);
+			}
+			else {
+				app.stage.removeChild(bg2,
+				man,
+				word1,
+				word2,
+				word3,
+				word4,
+				plume1,
+				plume2,
+				plume3);
+				var bg3=new PIXI.Sprite.fromImage("res/3/背景.png");
+				mu1.pause();
+				mu2.play();
+				bg3.width=400;
+				bg3.height=700;
+				app.stage.addChild(bg3);
+				var ren=new PIXI.Sprite.fromImage("res/4/人物素材.png");
+				ren.width=400;
+				ren.height=700;
+				app.stage.addChild(ren);
+				var wor1=new PIXI.Sprite.fromImage("res/4/文字1.png");
+				var wor2=new PIXI.Sprite.fromImage("res/4/文字2.png");
+				var wor3=new PIXI.Sprite.fromImage("res/4/文字3.png");
+				var wor4=new PIXI.Sprite.fromImage("res/4/文字4.png");
+				wor1.width=400;
+				wor1.height=700;
+				wor2.width=400;
+				wor2.height=700;
+				wor3.width=400;
+				wor3.height=700;
+				wor4.width=400;
+				wor4.height=700;
+				var ring=new PIXI.Sprite.fromImage("res/4/戒指素材.png");
+				ring.width=400;
+				ring.height=700;
+				bg3.interactive=true;
+				bg3.on("click",
+				wind);
+				var p=0;
+				function wind() {
+					p+=1;
+					if(p==1) {
+						app.stage.addChild(wor1);
+					}
+					else if(p==2) {
+						app.stage.addChild(wor2);
+					}
+					else if(p==3) {
+						app.stage.addChild(wor3);
+					}
+					else if(p==4) {
+						app.stage.addChild(ring);
+					}
+					else if(p==5) {
+						app.stage.addChild(wor4);
+					}
+					else {
+						/*app.stage.removeChild(bg3,ren,wor1,wor2,wor3,wor4,ring);
+								var bg3=new PIXI.Sprite.fromImage("res/3/baomihua.jpg");
+								bg3.width=400;
+								bg3.height=700;
+								app.stage.addChild(bg3);
+								var last=new PIXI.Text("谢谢");
+								last.x=200;
+								last.y=200;
+								app.stage.addChild(last)*/
+						;
+					}
+				}
+				/*var bg3=new PIXI.Sprite.fromImage("res/3/baomihua.jpg");
+						bg3.width=400;
+						bg3.height=700;
+						app.stage.addChild(bg3);
+						var last=new PIXI.Text("谢谢！");
+						last.x=200;
+						last.y=200;
+						app.stage.addChild(last);*/
+			}
+		}
+	}
+	/*var bg2=new PIXI.Sprite.fromImage("res/3/背景.png");
+			bg2.width=400;
+			bg2.height=700;
+			app.stage.addChild(bg2);
+			var man=new PIXI.Sprite.fromImage("res/3/人物主体.png");
+			man.width=400;
+			man.height=700;
+			app.stage.addChild(man);*/
+	
+	</script></div></body></html><!--<!DOCTYPE html><html><head><title>音频1</title><meta charset="UTF-8"><embed src="res/2/Alan Silvestri - Forrest Gump Suite.mp3" hidden="true" autostart="true" loop="true"></embed></head><body></body></html></script></body></html><!DOCTYPE html><html><head><title>音频2</title><meta charset="UTF-8"><embed src="res/4/Howard Shore - Concerning Hobbits.mp3" hidden="true" autostart="true" loop="true"></embed></head><body></body></html>-->
